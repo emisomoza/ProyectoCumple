@@ -6,6 +6,7 @@ class Empleado {
 	String nombre
 	String apellido
 	Date fechaCumple
+	String regaloDeCumpleanios
 	
 
     static constraints = {

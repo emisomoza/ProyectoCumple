@@ -15,4 +15,24 @@ class EmpleadoController {
 	}
 
 
+	def elegirRegalo = {
+		
+		def idEmpleado = params.idEmpleado
+		return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
+
+	}
+
+/*
+	def asignarRegalo = {
+		
+		def idEmpleado = params.idEmpleado
+		def idRegalo = params.idRegalo
+
+		// service que graba el regalo en el empleado
+
+		return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
+
+	}
+*/
+
 }

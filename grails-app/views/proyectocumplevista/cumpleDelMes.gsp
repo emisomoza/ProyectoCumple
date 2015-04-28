@@ -2,11 +2,12 @@
 		
 		<td>Nombre Empleado</td>  	<td>Fecha de Cumpleaños</td> 
 		
-	<g:each in="${listaEmpleadosCumple}" var="lista">
+	<g:each in="${listaEmpleadosCumple}" var="empleado">
 		<tr>
-			<td> ${lista.nombre} </td>  	
+		
+ 			<td> <a href="/ProyectoCumple/empleado/elegirRegalo?idEmpleado=${empleado.id}"> ${empleado.nombre} </a>  </td> 
 			
-			<td> ${lista.fechaCumple} </td> 
+			<td> ${empleado.fechaCumple} </td> 
 		</tr>
 	</g:each>
 		

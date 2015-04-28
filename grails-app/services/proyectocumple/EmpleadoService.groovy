@@ -8,14 +8,12 @@ class EmpleadoService{
 			def today = new Date()
 			def mesActual = today.getMonth()
 
-			def cumpleanieros = Empleado.list()
-
-			cumpleanieros.each {
-				def mesEmpleado = it.fechaCumple.getMonth()
-				if mesEmpleado == mesActual
-				println(it.nombre)
+			def cumpleanieros = Empleado.where {
+				//  year(fechaCumple) == 1980
+				month(fechaCumple) == mesActual + 1
 			}
 
+			
 	}
 
 }
