@@ -5,33 +5,17 @@ import proyectocumple.Empleado
 class EmpleadoService{
 
 	def buscarCumpleanierosPorMesActual(){
-			
 			def today = new Date()
-			def mesAtual = today.month
+			def mesActual = today.getMonth()
 
 			def cumpleanieros = Empleado.list()
-			def resultadoLista 
 
-		/*
 			cumpleanieros.each {
-				def mesEmpleado = (it.fechaCumple).month
-				if (mesEmpleado == mesActual) {
-
-					resultadoLista.add(it)
-				}
+				def mesEmpleado = it.fechaCumple.getMonth()
+				if mesEmpleado == mesActual
+				println(it.nombre)
 			}
-		*/
 
-		/*
-		  for (def empleado: cumpleanieros) {
-
-        	def mesEmpleado = empleado.fechaCumple.month
-				if (mesEmpleado == mesActual) {
-
-					resultadoLista.add(it)
-          }
-*/
-   			
 	}
 
 }
