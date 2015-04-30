@@ -11,9 +11,14 @@ class EmpleadoService{
 			def cumpleanieros = Empleado.where {
 				//  year(fechaCumple) == 1980
 				month(fechaCumple) == mesActual + 1
-			}
+			}			
+	}
 
-			
+	def guardarRegaloEnEmpleado(idEmpleado, idRegalo){
+
+		def empleado = Empleado.findById(idEmpleado)
+		empleado.regaloDeCumpleanios = idRegalo
+		empleado.save()
 	}
 
 }

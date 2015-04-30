@@ -11,14 +11,16 @@ class EmpleadoController {
 
 	def buscarCumpleaniero() {
 		def listaEmpleadosCumple = empleadoService.buscarCumpleanierosPorMesActual()
-		return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
+		[listaEmpleadosCumple: listaEmpleadosCumple]
+	//	return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
 	}
 
 
 	def elegirRegalo() {
 		
 		def idEmpleado = params.idEmpleado
-		return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
+		[idEmpleado: idEmpleado]
+	//	return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
 
 	}
 
@@ -28,9 +30,9 @@ class EmpleadoController {
 		def idEmpleado = params.idEmpleado
 		def idRegalo = params.idRegalo
 
-		Empleado.regaloDeCumpleanios = idRegalo
-
-		return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [idEmpleado: idEmpleado])
+		def empleado = empleadoService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+		[empleado: empleado]
+	//	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
 
 	}
 
