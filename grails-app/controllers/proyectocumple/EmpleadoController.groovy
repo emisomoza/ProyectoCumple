@@ -19,7 +19,10 @@ class EmpleadoController {
 	def elegirRegalo() {
 		
 		def idEmpleado = params.idEmpleado
-		[idEmpleado: idEmpleado]
+		def empleado = Empleado.findById(idEmpleado)
+
+		[empleado: empleado]
+
 	//	return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
 
 	}

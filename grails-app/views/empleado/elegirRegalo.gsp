@@ -15,9 +15,10 @@ var  endpoint = "${createLink(controller:'empleado', action:'asignarRegalo')} "
 
 
 		<div id="page-body" role="main">
-			<h1>Busca los regalos</h1>
+			<h1>Elegi un regalo para</h1>
 
-<input type="text" id="id" name="id" value="${idEmpleado}" />
+<input type="hidden" id="id" name="id" value="${empleado.id}" />
+<input type="text" id="id22" name="i2d" value="${empleado.apellido} ${empleado.nombre}" disabled />
 			
 
 				<p>Busqueda <input type="text" id="meliquery" name="query" placeholder="Busque aqui..." /></p>
