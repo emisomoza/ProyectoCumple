@@ -1,3 +1,10 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
 <table border=1>
 		
 		<td>Nombre Empleado</td>  	<td>Fecha de Cumpleaños</td> 
@@ -7,7 +14,7 @@
 		
  		<!--	<td> <a href="/ProyectoCumple/empleado/elegirRegalo?idEmpleado=${empleado.id}"> ${empleado.nombre} </a>  </td>  -->
 
- 			<td> <a href=" ${createLink(controller:"empleado", action:"elegirRegalo", params:[idEmpleado: empleado.id])}"> ${empleado.nombre} </a>  </td> 
+ 			<td> <a href="${createLink(controller:"empleado", action:"elegirRegalo", id: empleado.id)}"> ${empleado.nombre} </a>  </td> 
 			
 		
  		<!--	
@@ -20,3 +27,11 @@
 	</g:each>
 		
 </table>
+
+</body>
+
+</html>
+
+
+
+

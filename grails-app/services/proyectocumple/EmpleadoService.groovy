@@ -19,7 +19,7 @@ class EmpleadoService{
 		def empleado = Empleado.findById(idEmpleado)
 		empleado.regaloDeCumpleanios = idRegalo
 		empleado.save()
-	}
+		}
 
 }
 

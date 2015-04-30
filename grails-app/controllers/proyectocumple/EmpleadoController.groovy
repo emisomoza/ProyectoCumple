@@ -8,6 +8,9 @@ class EmpleadoController {
 
 	def scaffold = true
 
+//	static allowedMethods = [elegirRegalo: 'POST',
+//							 asignarRegalo: 'POST']
+
 
 	def buscarCumpleaniero() {
 		def listaEmpleadosCumple = empleadoService.buscarCumpleanierosPorMesActual()
@@ -17,9 +20,7 @@ class EmpleadoController {
 
 
 	def elegirRegalo() {
-		
-		def idEmpleado = params.idEmpleado
-		def empleado = Empleado.findById(idEmpleado)
+		def empleado = Empleado.get(params.id)
 
 		[empleado: empleado]
 
@@ -34,6 +35,31 @@ class EmpleadoController {
 		def idRegalo = params.idRegalo
 
 		def empleado = empleadoService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+		[empleado: empleado]
+	//	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
+
+	}
+
+	def asignarRegaloPost() {
+		
+		def idEmpleado = params.idEmpleado
+		def idRegalo = params.idRegalo
+
+	//	def empleado = empleadoService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+		def empleado = Empleado.get(idEmpleado)
+		empleado.regaloDeCumpleanios = idRegalo
+		[empleado: empleado]
+	//	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
+
+	}
+
+	def confirmacionDeGuardado() {
+		
+		def idEmpleado = params.idEmpleado
+		def idRegalo = params.idRegalo
+
+		def empleado = empleadoService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+		
 		[empleado: empleado]
 	//	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
 

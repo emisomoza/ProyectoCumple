@@ -9,7 +9,7 @@
 <asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
 <script>
-var  endpoint = "${createLink(controller:'empleado', action:'asignarRegalo')} "
+var  endpoint = "${createLink(controller:'empleado', action:'asignarRegaloPost')} "
 </script>
 </head>	
 
@@ -27,7 +27,7 @@ var  endpoint = "${createLink(controller:'empleado', action:'asignarRegalo')} "
 
 					<script type="text/template" id="templateItem">
 						
-						<g:form action="asignarRegalo" controller="EmpleadoController">
+						<g:form action="asignarRegaloPost" controller="EmpleadoController">
 
 						<li>
 						<a href="#url#"> #title# </a>
