@@ -16,7 +16,9 @@ $(function() {
 			var str = $("#templateItem").text()
 		//	str = str.replace(/#url#/g, item.permalink);
 		//	str = str.replace(/#url#/g, "javascript:asignarRegalo(" + item.id + ");");
-			str = str.replace(/#url#/g, "empleado/asignarRegalo?idProducto=" + item.id);
+		    var idEmp = document.getElementById("id").value
+		//	str = str.replace(/#url#/g, "empleado/asignarRegalo?idRegalo=" + item.id + "&idEmpleado=" + idEmp );
+            str = str.replace(/#url#/g, endpoint + "?idRegalo=" + item.id + "&idEmpleado=" + idEmp);
 			str = str.replace(/#title#/g, item.title);
 
 			$("#resultadoBusqueda").append(str);

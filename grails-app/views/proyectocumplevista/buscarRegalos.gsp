@@ -8,11 +8,17 @@
 
 <asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
-
+<script>
+var  endpoint = "${createLink(controller:'empleado', action:'asignarRegalo')} "
+</script>
 </head>	
+
+
 		<div id="page-body" role="main">
 			<h1>Busca los regalos</h1>
 
+<input type="text" id="id" name="id" value="${idEmpleado}" />
+			
 
 				<p>Busqueda <input type="text" id="meliquery" name="query" placeholder="Busque aqui..." /></p>
 				<ul id="resultadoBusqueda">

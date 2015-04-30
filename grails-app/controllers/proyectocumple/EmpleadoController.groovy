@@ -9,30 +9,30 @@ class EmpleadoController {
 	def scaffold = true
 
 
-	def buscarCumpleaniero = {
+	def buscarCumpleaniero() {
 		def listaEmpleadosCumple = empleadoService.buscarCumpleanierosPorMesActual()
 		return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
 	}
 
 
-	def elegirRegalo = {
+	def elegirRegalo() {
 		
 		def idEmpleado = params.idEmpleado
 		return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
 
 	}
 
-/*
-	def asignarRegalo = {
+
+	def asignarRegalo() {
 		
 		def idEmpleado = params.idEmpleado
 		def idRegalo = params.idRegalo
 
-		// service que graba el regalo en el empleado
+		Empleado.regaloDeCumpleanios = idRegalo
 
-		return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
+		return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [idEmpleado: idEmpleado])
 
 	}
-*/
+
 
 }

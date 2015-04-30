@@ -17,3 +17,20 @@ class EmpleadoService{
 	}
 
 }
+
+
+/*
+
+def buscarCumpleaniero() {
+		def listaEmpleadosCumple = empleadoService.buscarCumpleanierosPorMesActual()
+		[listaEmpleadosCumple: listaEmpleadosCumple]
+	}
+
+
+	def elegirRegalo() {
+		
+		def idEmpleado = params.idEmpleado
+		return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
+		render view: "blbj",model: []
+
+*/
