@@ -2,8 +2,11 @@ package proyectocumple
 
 import org.springframework.web.servlet.ModelAndView
 
+import grails.rest.RestfulController
 
-class EmpleadoController {
+import grails.converters.JSON
+
+class EmpleadoController extends RestfulController{
 
 	EmpleadoService empleadoService
 
@@ -84,5 +87,16 @@ class EmpleadoController {
 
 	}
 
+	public EmpleadoController() {
+		super(Empleado)
+	}
+
+	def search() {
+		def empleados = Empleado.findAllByNombreLike(params.query + "%")
+//		println "============"
+//		println icecreams
+//		println "============"
+		respond empleados
+	}
 
 }
