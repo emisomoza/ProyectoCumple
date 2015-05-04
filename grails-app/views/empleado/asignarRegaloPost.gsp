@@ -6,11 +6,11 @@ Confirmar asignacion de regalo <br>
 <td>Nombre Empleado: </td>  ${empleado.nombre}	<br>
 <td>Apellido Empleado: </td>  ${empleado.apellido}	<br>
 <td>Fecha de Nacimiento Empleado: </td>  ${empleado.fechaCumple}	<br>
-<td>Regalo de Cumpleaños Empleado: </td>  ${empleado.regaloDeCumpleanios} 	<br>
+<td>Regalo de Cumpleaños: </td>  ${idRegalo} 	<br>
 
 
 <g:hiddenField name="idEmpleado" value= "${empleado.id}" />
-<g:hiddenField name="idRegalo" value= "${empleado.regaloDeCumpleanios}" />
+<g:hiddenField name="idRegalo" value= "${idRegalo}" />
   
   <g:submitButton name="Submit" value="ACEPTAR" class="lnk" />
   <input id="mybutton" type="button" value="CANCELAR" onclick="back();" />

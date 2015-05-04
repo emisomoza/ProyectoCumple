@@ -7,6 +7,12 @@
 
 <table border=1>
 		
+	Lista de personas que cumplen años este mes
+</br>
+	Dale click al nombre para asignar un regalo o ver su historial
+
+	</br>
+
 		<td>Nombre Empleado</td>  	<td>Fecha de Cumpleaños</td> 
 		
 	<g:each in="${listaEmpleadosCumple}" var="empleado">

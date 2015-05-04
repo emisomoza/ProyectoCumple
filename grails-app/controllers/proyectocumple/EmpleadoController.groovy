@@ -2,6 +2,7 @@ package proyectocumple
 
 import org.springframework.web.servlet.ModelAndView
 
+
 class EmpleadoController {
 
 	EmpleadoService empleadoService
@@ -22,7 +23,20 @@ class EmpleadoController {
 	def elegirRegalo() {
 		def empleado = Empleado.get(params.id)
 
-		[empleado: empleado]
+		def añoActual = new Date().getYear()
+		def regaloMesActual = empleado.regaloDeCumpleanios
+		
+		def añoRegalo 
+		def mostrar = true
+
+		empleado.regaloDeCumpleanios.each() { 
+			añoRegalo = it.fechaDeAsignacion.getYear()
+			if ( añoRegalo == añoActual ){
+				mostrar= false
+			}
+		}
+
+		[empleado: empleado, mostrar: mostrar, añoRegalo: añoRegalo, añoActual: añoActual]
 
 	//	return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
 
@@ -45,10 +59,15 @@ class EmpleadoController {
 		def idEmpleado = params.idEmpleado
 		def idRegalo = params.idRegalo
 
-	//	def empleado = empleadoService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+
+
 		def empleado = Empleado.get(idEmpleado)
-		empleado.regaloDeCumpleanios = idRegalo
-		[empleado: empleado]
+
+		// empleado.regaloDeCumpleanios.add(regalo)
+
+
+
+		[empleado: empleado,idRegalo: idRegalo]
 	//	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
 
 	}

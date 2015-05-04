@@ -6,14 +6,38 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
 	<head>
 
+
+
 <asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
+<asset:javascript src="application.js"/>
 <script>
 var  endpoint = "${createLink(controller:'empleado', action:'asignarRegaloPost')} "
 </script>
 </head>	
 
+		<div id="page-body" role="main">
+			<h1>Historial de asignaciones de regalos para: ${empleado.apellido} ${empleado.nombre}</h1>
 
+			<table border=1>
+
+				<g:each var="regalo" in ="${empleado.regaloDeCumpleanios}">
+					<tr> 
+						<td> ${regalo.titulo} </td>
+						<td> ${regalo.fechaDeAsignacion.getYear()+1900}</td>
+						<!--td> <fmt:formatDate pattern="yyyy-MM-dd" value="${regalo.fechaDeAsignacion}"/> </td-->
+					
+					</tr>
+				</g:each>
+			</table>
+
+
+		</div>
+
+
+		
+
+
+<g:if test = "${mostrar}">
 		<div id="page-body" role="main">
 			<h1>Elegi un regalo para</h1>
 
@@ -39,3 +63,4 @@ var  endpoint = "${createLink(controller:'empleado', action:'asignarRegaloPost')
 
 		</div>
 		
+</g:if>
