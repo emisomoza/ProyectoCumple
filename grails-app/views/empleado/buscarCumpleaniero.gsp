@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<asset:javascript src="application.js"/>
 </head>
 
 <body>
@@ -34,8 +35,74 @@
 		
 </table>
 
+</br>
+</br>
+
+<label>Busca usuarios a traves de un servicio REST</label>
+<br>
+	
+	<input type="text" id="nombre" name="nombre" value=""/> 
+	<input type="button" name="Submit" value="Buscar" onclick="enviar();"/>
+
+
+<div id ="contenedor">
+</div>
+<br>
+</br>
+</br>
+</br>
+</br>
+<label>Formulario de alta por REST</label>
+	<br>
+	<br>
+	<g:form>
+		<label>Datos del empleado</label>
+		<br>
+		<br>
+		<label>Nombre:</label>
+		<g:field type="text" name="nombre"/>
+		<br>
+		<label>Apellido:</label>
+		<g:field type="text" name="apellido"/>
+		<br>
+		<label>Fecha de nacimiento</label>
+		<g:datePicker precision="day" name="fecha"/>
+		<br>
+		<br>
+		<g:field type="submit" name="confirmar" value="Guardar" onclick="guardar();"/>
+	</g:form>
 </body>
 
+
+<script>
+
+function enviar(){
+	console.log("enviar");
+	var nombre = $("#nombre").val();
+
+	console.log("nombre", nombre);
+
+	var request = $.ajax({
+  		url: "${createLink(controller: "EmpleadoRest", action: "search")}",
+		data: { nombre: nombre }
+	});
+ 
+	request.done(function( data ) {
+		console.log("done", data);
+		var str
+
+			$("#contenedor").empty();
+			data.forEach(function(item) {
+				str = item.nombre + " " + item.apellido + " " + "<br>";
+				$("#contenedor").append(str);
+			})
+	});
+ 
+	request.fail(function( jqXHR, textStatus ) {
+		alert( "Request failed: " + textStatus );
+	});
+}
+</script>
 </html>
 
 
