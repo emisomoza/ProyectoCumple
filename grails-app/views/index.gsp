@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Proyecto Cumple</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -103,14 +103,14 @@
 			</ul>
 		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
+			<h1>Proyecto Cumple</h1>
 
 
-				<p>Busqueda <input type="text" id="meliquery" name="query" placeholder="Busque aqui..." /></p>
+				%{--<p>Busqueda <input type="text" id="meliquery" name="query" placeholder="Busque aqui..." /></p>
 				<ul id="resultadoBusqueda">
-				</ul>
+				</ul>--}%
 
-					<script type="text/template" id="templateItem">
+				%{--	<script type="text/template" id="templateItem">
 						
 						<g:form action="asignarRegalo" controller="EmpleadoController">
 
@@ -121,19 +121,19 @@
 
 						</g:form>
 
-					</script>
+					</script>--}%
 
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+			<p>En esta aplicación uested podrá realizar altas de empleados y asignarles a los mismos regalos desde
+			MercadoLibre una vez se encuentre en el mes actual del cumpleaños
+			</p>
 
 			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
+				<h2>Controllers:</h2>
 				<ul>
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 					</g:each>
+                    <li Class="controller"><g:link controller=""</li>
 				</ul>
 			</div>
 		</div>
