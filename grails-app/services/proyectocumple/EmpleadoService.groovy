@@ -37,6 +37,15 @@ class EmpleadoService{
 		empleado.save()
 	}
 
+
+	def guardarEmpleado(params){
+		def empleado = new Empleado()
+		empleado.nombre = params.nombre
+		empleado.apellido = params.apellido
+		empleado.fechaCumple = params.cumple
+		empleado.save()
+	}
+
 }
 
 
