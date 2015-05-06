@@ -8,6 +8,7 @@ class EmpleadoRestController extends RestfulController{
 
 	static responseFormats = ['json', 'xml']
 
+	EmpleadoService empleadoService
 	public EmpleadoRestController() {
 		super(Empleado)
 	}
@@ -17,5 +18,10 @@ class EmpleadoRestController extends RestfulController{
 		respond empleados
 	}
 
+	@Override
+	def save() {
+		empleadoService.guardarEmpleado(params)
+		redirect(uri: "/empleado/index")
+	}
 
 }

@@ -56,7 +56,7 @@
 <label>Formulario de alta por REST</label>
 	<br>
 	<br>
-	<g:form>
+	<g:form controller="EmpleadoRest" action="save" method="POST">
 		<label>Datos del empleado</label>
 		<br>
 		<br>
@@ -67,16 +67,15 @@
 		<g:field type="text" name="apellido"/>
 		<br>
 		<label>Fecha de nacimiento</label>
-		<g:datePicker precision="day" name="fecha"/>
+		<g:datePicker precision="day" name="cumple"/>
 		<br>
 		<br>
-		<g:field type="submit" name="confirmar" value="Guardar" onclick="guardar();"/>
+		<input type="submit"  value="Guardar"/>
 	</g:form>
 </body>
 
 
 <script>
-
 
 function enviar(){
 	console.log("enviar");
