@@ -10,6 +10,7 @@
 		
 	Lista de personas que cumplen años este mes
 </br>
+	<br>
 	Dale click al nombre para asignar un regalo o ver su historial
 
 	</br>
@@ -38,7 +39,7 @@
 </br>
 </br>
 
-<label>Busca usuarios a traves de un servicio REST</label>
+<label>Busca Empleados por el Nombre a traves de un servicio REST</label>
 <br>
 	
 	<input type="text" id="nombre" name="nombre" value=""/> 
@@ -75,6 +76,7 @@
 
 
 <script>
+
 
 function enviar(){
 	console.log("enviar");

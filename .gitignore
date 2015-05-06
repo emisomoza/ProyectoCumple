@@ -4,3 +4,4 @@ target-eclipse
 .proyect
 target
 *.~
+.idea/*

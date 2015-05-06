@@ -123,9 +123,8 @@
 
 					</script>--}%
 
-			<p>En esta aplicación uested podrá realizar altas de empleados y asignarles a los mismos regalos desde
-			MercadoLibre una vez se encuentre en el mes actual del cumpleaños
-			</p>
+			<p>En esta aplicación uested podrá realizar altas de empleados y asignarles a los mismos regalos desde MercadoLibre una vez se encuentre en el mes actual del cumpleaños</p>
+
 
 			<div id="controller-list" role="navigation">
 				<h2>Controllers:</h2>
@@ -133,7 +132,6 @@
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 					</g:each>
-                    <li Class="controller"><g:link controller=""</li>
 				</ul>
 			</div>
 		</div>

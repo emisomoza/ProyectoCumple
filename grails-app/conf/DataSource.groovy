@@ -13,6 +13,7 @@ hibernate {
 }
 
 // environment specific settings
+//recordar una vez este la externalizacion volver a dejar como username root y password vacía
 environments {
     development {
 		dataSource {
