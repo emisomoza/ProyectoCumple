@@ -10,6 +10,12 @@ class Empleado {
 	static hasMany = [regaloDeCumpleanios: Regalo]
 
     static constraints = {
+		nombre()
+		apellido()
+		fechaCumple()
+		regaloDeCumpleanios(display: false)
     }
-	
+	static mapping = {
+		regaloDeCumpleanios column: 'empleado_regalo_id', joinTable: false
+	}
 }

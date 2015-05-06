@@ -1,5 +1,0 @@
-package proyectocumple
-
-class RegaloController {
-
-}
