@@ -10,7 +10,9 @@ class EmpleadoController {
 
 //	static allowedMethods = [elegirRegalo: 'POST',
 //							 asignarRegalo: 'POST']
-
+	def login() {
+		
+	}
 
 	def buscarCumpleaniero() {
 		def listaEmpleadosCumple = empleadoService.buscarCumpleanierosPorMesActual()
