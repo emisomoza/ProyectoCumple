@@ -20,13 +20,13 @@
 	<g:each in="${listaEmpleadosCumple}" var="empleado">
 		<tr>
 		
- 		<!--	<td> <a href="/ProyectoCumple/empleado/elegirRegalo?idEmpleado=${empleado.id}"> ${empleado.nombre} </a>  </td>  -->
+ 		<!--	<td> <a href="/ProyectoCumple/empleado/elegirRegalo?idEmpleado=${empleado.id}"> ${empleado.username} </a>  </td>  -->
 
- 			<td> <a href="${createLink(controller:"user", action:"elegirRegalo", id: empleado.id)}"> ${empleado.nombre} </a>  </td>
+ 			<td> <a href="${createLink(controller:"user", action:"elegirRegalo", id: empleado.id)}"> ${empleado.username} </a>  </td>
 			
 		
  		<!--	
-			<td> <g:link controller="user"  action="elegirRegalo" params="${[idEmpleado: empleado.id]}"> ${empleado.nombre} </g:link>  </td>
+			<td> <g:link controller="user"  action="elegirRegalo" params="${[idEmpleado: empleado.id]}"> ${empleado.username} </g:link>  </td>
 		-->
 
 			<td> ${empleado.fechaCumple} </td> 

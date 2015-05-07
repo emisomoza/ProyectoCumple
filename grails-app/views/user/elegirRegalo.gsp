@@ -16,7 +16,7 @@ var  endpoint = "${createLink(controller:'user', action:'asignarRegaloPost')} "
 </head>	
 
 		<div id="page-body" role="main">
-			<h1>Historial de asignaciones de regalos para: ${empleado.apellido} ${empleado.nombre}</h1>
+			<h1>Historial de asignaciones de regalos para: ${empleado.apellido} ${empleado.username}</h1>
 
 			<table border=1>
 
@@ -42,7 +42,7 @@ var  endpoint = "${createLink(controller:'user', action:'asignarRegaloPost')} "
 			<h1>Elegi un regalo para</h1>
 
 <input type="hidden" id="id" name="id" value="${empleado.id}" />
-<input type="text" id="id22" name="i2d" value="${empleado.apellido} ${empleado.nombre}" disabled />
+<input type="text" id="id22" name="i2d" value="${empleado.apellido} ${empleado.username}" disabled />
 			
 
 				<p>Busqueda <input type="text" id="meliquery" name="query" placeholder="Busque aqui..." /></p>
