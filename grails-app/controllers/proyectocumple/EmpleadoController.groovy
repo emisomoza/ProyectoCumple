@@ -48,7 +48,7 @@ class EmpleadoController {
 
 	}
 
-	@Secured(['ROLE_USER'])
+	@Secured(['ROLE_ADMIN'])
 	def asignarRegalo() {
 		
 		def idEmpleado = params.idEmpleado

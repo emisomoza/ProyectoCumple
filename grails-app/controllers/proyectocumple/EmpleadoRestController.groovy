@@ -3,7 +3,9 @@ package proyectocumple
 import org.springframework.web.servlet.ModelAndView
 import grails.rest.RestfulController
 import grails.converters.JSON
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_USER'])
 class EmpleadoRestController extends RestfulController{
 
 	static responseFormats = ['json', 'xml']
