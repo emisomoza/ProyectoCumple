@@ -1,6 +1,7 @@
 package proyectocumple
 
 import org.springframework.web.servlet.ModelAndView
+import grails.plugin.springsecurity.annotation.Secured
 
 class EmpleadoController {
 
@@ -14,13 +15,14 @@ class EmpleadoController {
 		
 	}
 
+	@Secured(['ROLE_USER'])
 	def buscarCumpleaniero() {
 		def listaEmpleadosCumple = empleadoService.buscarCumpleanierosPorMesActual()
 		[listaEmpleadosCumple: listaEmpleadosCumple]
 	//	return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
 	}
 
-
+	@Secured(['ROLE_USER'])
 	def elegirRegalo() {
 		def empleado = Empleado.get(params.id)
 
@@ -43,7 +45,7 @@ class EmpleadoController {
 
 	}
 
-
+	@Secured(['ROLE_USER'])
 	def asignarRegalo() {
 		
 		def idEmpleado = params.idEmpleado
@@ -55,6 +57,7 @@ class EmpleadoController {
 
 	}
 
+	@Secured(['ROLE_USER'])
 	def asignarRegaloPost() {
 		
 		def idEmpleado = params.idEmpleado
@@ -73,6 +76,7 @@ class EmpleadoController {
 
 	}
 
+	@Secured(['ROLE_USER'])
 	def confirmacionDeGuardado() {
 		
 		def idEmpleado = params.idEmpleado

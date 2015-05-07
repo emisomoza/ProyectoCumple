@@ -1,10 +1,12 @@
 package proyectocumple
 
 import proyectocumple.Empleado
+import grails.plugin.springsecurity.annotation.Secured
 import groovy.json.JsonSlurper
 
 class EmpleadoService{
 
+	@Secured(['ROLE_USER'])
 	def buscarCumpleanierosPorMesActual(){
 			def today = new Date()
 			def mesActual = today.getMonth()
@@ -15,6 +17,7 @@ class EmpleadoService{
 			}			
 	}
 
+	@Secured(['ROLE_ADMIN'])
 	def guardarRegaloEnEmpleado(idEmpleado, idRegalo){
 
 		def empleado = Empleado.get(idEmpleado)
@@ -37,7 +40,7 @@ class EmpleadoService{
 		empleado.save()
 	}
 
-
+	@Secured(['ROLE_ADMIN'])
 	def guardarEmpleado(params){
 		def empleado = new Empleado()
 		empleado.nombre = params.nombre
