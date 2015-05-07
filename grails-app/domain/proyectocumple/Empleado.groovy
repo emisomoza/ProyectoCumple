@@ -6,6 +6,7 @@ class Empleado {
 	String nombre
 	String apellido
 	Date fechaCumple
+	static hasOne = [empresa: Empresa]
 //	String regaloDeCumpleanios
 	static hasMany = [regaloDeCumpleanios: Regalo]
 
@@ -17,5 +18,6 @@ class Empleado {
     }
 	static mapping = {
 		regaloDeCumpleanios column: 'empleado_regalo_id', joinTable: false
+
 	}
 }

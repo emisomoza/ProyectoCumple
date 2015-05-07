@@ -11,6 +11,9 @@ class EmpleadoController {
 
 //	static allowedMethods = [elegirRegalo: 'POST',
 //							 asignarRegalo: 'POST']
+	@Secured(['ROLE_USER'])
+	def index(){}
+
 	def login() {
 		
 	}
