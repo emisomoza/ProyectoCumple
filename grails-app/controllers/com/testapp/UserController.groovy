@@ -1,6 +1,6 @@
 package com.testapp
 
-
+import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -101,4 +101,91 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    //WARNING!!!!!  This here to the end of the class is a copy-paste from the old "EmpleadosController.groovy" class
+    UserService userService
+    def scaffold = true
+
+//	static allowedMethods = [elegirRegalo: 'POST',
+//							 asignarRegalo: 'POST']
+
+    def login() {
+
+    }
+
+    @Secured(['ROLE_USER'])
+    def buscarCumpleaniero() {
+        def listaEmpleadosCumple = userService.buscarCumpleanierosPorMesActual()
+        [listaEmpleadosCumple: listaEmpleadosCumple]
+        //	return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
+    }
+
+    @Secured(['ROLE_USER'])
+    def elegirRegalo() {
+        def empleado = User.get(params.id)
+
+        def anioActual = new Date().getYear()
+        def regaloMesActual = empleado.regaloDeCumpleanios
+
+        def anioRegalo
+        def mostrar = true
+
+        empleado.regaloDeCumpleanios.each() {
+            anioRegalo = it.fechaDeAsignacion.getYear()
+            if ( anioRegalo == anioActual ){
+                mostrar= false
+            }
+        }
+
+        [empleado: empleado, mostrar: mostrar, anioRegalo: anioRegalo, anioActual: anioActual]
+
+        //	return new ModelAndView ('/proyectocumplevista/buscarRegalos', [idEmpleado: idEmpleado])
+
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    def asignarRegalo() {
+
+        def idEmpleado = params.idEmpleado
+        def idRegalo = params.idRegalo
+
+        def empleado = userService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+        [empleado: empleado]
+        //	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
+
+    }
+
+    @Secured(['ROLE_USER'])
+    def asignarRegaloPost() {
+
+        def idEmpleado = params.idEmpleado
+        def idRegalo = params.idRegalo
+
+
+
+        def empleado = User.get(idEmpleado)
+
+        // empleado.regaloDeCumpleanios.add(regalo)
+
+
+
+        [empleado: empleado,idRegalo: idRegalo]
+        //	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
+
+    }
+
+    @Secured(['ROLE_USER'])
+    def confirmacionDeGuardado() {
+
+        def idEmpleado = params.idEmpleado
+        def idRegalo = params.idRegalo
+
+        def empleado = userService.guardarRegaloEnEmpleado(idEmpleado,idRegalo)
+
+        [empleado: empleado]
+        //	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
+
+    }
+
+
 }

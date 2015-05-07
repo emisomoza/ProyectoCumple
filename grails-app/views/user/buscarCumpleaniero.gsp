@@ -22,11 +22,11 @@
 		
  		<!--	<td> <a href="/ProyectoCumple/empleado/elegirRegalo?idEmpleado=${empleado.id}"> ${empleado.nombre} </a>  </td>  -->
 
- 			<td> <a href="${createLink(controller:"empleado", action:"elegirRegalo", id: empleado.id)}"> ${empleado.nombre} </a>  </td> 
+ 			<td> <a href="${createLink(controller:"user", action:"elegirRegalo", id: empleado.id)}"> ${empleado.nombre} </a>  </td>
 			
 		
  		<!--	
-			<td> <g:link controller="empleado"  action="elegirRegalo" params="${[idEmpleado: empleado.id]}"> ${empleado.nombre} </g:link>  </td> 
+			<td> <g:link controller="user"  action="elegirRegalo" params="${[idEmpleado: empleado.id]}"> ${empleado.nombre} </g:link>  </td>
 		-->
 
 			<td> ${empleado.fechaCumple} </td> 
