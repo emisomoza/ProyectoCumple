@@ -50,6 +50,9 @@ class UserService {
 		empleado.username = params.nombre
 		empleado.apellido = params.apellido
 		empleado.fechaCumple = params.cumple
+		empleado.password = params.password
+		empleado.empresa = params.empresa
+
 		empleado.save()
 	}
 

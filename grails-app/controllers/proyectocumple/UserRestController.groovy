@@ -13,6 +13,7 @@ class UserRestController extends RestfulController{
 	static responseFormats = ['json', 'xml']
 
 	UserService userService
+	EmpresaService empresaService
 
 
 	public UserRestController() {
@@ -20,12 +21,14 @@ class UserRestController extends RestfulController{
 	}
 
 	def search() {
+		empresaService.getEmpresa()
 		def empleados = User.findAllByUsernameLike(params.nombre + "%")
 		respond empleados
 	}
 
 	@Override
 	def save() {
+		params.put('empresa',empresaService.getEmpresa())
 		userService.guardarEmpleado(params)
 		redirect(uri: "/user/index")
 	}

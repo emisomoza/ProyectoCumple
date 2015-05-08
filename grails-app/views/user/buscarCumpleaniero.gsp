@@ -66,7 +66,7 @@
 <label>Formulario de alta por REST</label>
 	<br>
 	<br>
-	<g:form controller="EmpleadoRest" action="save" method="POST">
+	<g:form controller="UserRest" action="save" method="POST">
 		<label>Datos del empleado</label>
 		<br>
 		<br>
@@ -75,6 +75,9 @@
 		<br>
 		<label>Apellido:</label>
 		<g:field type="text" name="apellido"/>
+		<br>
+		<label>Password:</label>
+		<g:field type="password" name="password"/>
 		<br>
 		<label>Fecha de nacimiento</label>
 		<g:datePicker precision="day" name="cumple"/>
@@ -104,7 +107,7 @@ function enviar(){
 
 			$("#contenedor").empty();
 			data.forEach(function(item) {
-				str = item.nombre + " " + item.apellido + " " + "<br>";
+				str = item.username + " " + item.apellido + " " + "<br>";
 				$("#contenedor").append(str);
 			})
 	});
