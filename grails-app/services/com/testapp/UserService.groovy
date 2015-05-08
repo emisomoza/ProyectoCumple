@@ -8,14 +8,17 @@ import proyectocumple.Regalo
 class UserService {
 
 	@Secured(['ROLE_USER'])
-	def buscarCumpleanierosPorMesActual(){
+	def buscarCumpleanierosPorMesActual(List<User> usuariosEmpresa ){
 			def today = new Date()
 			def mesActual = today.getMonth()
+			def cumpleanieros = new ArrayList<User>()	
 
-			def cumpleanieros = User.where {
-				//  year(fechaCumple) == 1980
-				month(fechaCumple) == mesActual + 1
-			}			
+			for(def empleado : usuariosEmpresa){
+				if(mesActual == empleado.getFechaCumple().getMonth()){
+					cumpleanieros.add(empleado)
+				}
+			}	
+			return cumpleanieros	
 	}
 
 	@Secured(['ROLE_ADMIN'])

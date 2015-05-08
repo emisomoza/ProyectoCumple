@@ -27,7 +27,7 @@
 
 		<td>Nombre Empleado</td>  	<td>Fecha de Cumpleaños</td> 
 		
-	<g:each in="${listaEmpleadosCumple}" var="empleado">
+	<g:each in="${empleadosEmpresaMesActual}" var="empleado">
 		<tr>
 		
  		<!--	<td> <a href="/ProyectoCumple/empleado/elegirRegalo?idEmpleado=${empleado.id}"> ${empleado.username} </a>  </td>  -->

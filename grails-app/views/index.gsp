@@ -90,7 +90,7 @@
 				<h2>Funcionalidades:</h2>
 				<ul>
 	                <li><a href="${createLink(controller: 'user', action: 'buscarCumpleaniero')}">Buscar cumpleañero</a></li>
-	                <li><a href="${createLink(controller: 'user', action: 'index')}">Agregar Usuario</a></li>
+	                <li><a href="${createLink(controller: 'user', action: 'index')}">ABM Usuarios</a></li>
 				</ul>
 			</div>
 		</div>

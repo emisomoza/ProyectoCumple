@@ -16,7 +16,6 @@ class UserController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
-        empresaService.serviceMethod()
     }
 
     def show(User userInstance) {
@@ -119,8 +118,9 @@ class UserController {
 
     @Secured(['ROLE_USER'])
     def buscarCumpleaniero() {
-        def listaEmpleadosCumple = userService.buscarCumpleanierosPorMesActual()
-        [listaEmpleadosCumple: listaEmpleadosCumple]
+        def listaEmpleadosEmpresa = empresaService.getEmpleadosPorEmpresa()
+		def empleadosEmpresaMesActual = userService.buscarCumpleanierosPorMesActual(listaEmpleadosEmpresa)
+        [empleadosEmpresaMesActual: empleadosEmpresaMesActual]
         //	return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
     }
 

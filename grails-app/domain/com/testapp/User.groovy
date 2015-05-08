@@ -11,8 +11,7 @@ class User {
 	String password
 	String apellido
 	Date fechaCumple
-	static hasOne = [empresa: Empresa]
-//	String regaloDeCumpleanios
+	Empresa empresa
 	static hasMany = [regaloDeCumpleanios: Regalo]
 	boolean enabled = true
 	boolean accountExpired
@@ -20,10 +19,11 @@ class User {
 	boolean passwordExpired
 
 	static constraints = {
-		username blank: false, unique: true
-		password blank: false
+		username(blank: false, unique: true)
+		password(blank: false)
 		apellido()
 		fechaCumple()
+		empresa()
 		regaloDeCumpleanios(display: false)
 	}
 	static mapping = {

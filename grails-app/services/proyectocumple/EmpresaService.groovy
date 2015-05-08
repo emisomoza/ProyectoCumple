@@ -9,11 +9,15 @@ import org.springframework.security.core.context.SecurityContextHolder
 @Transactional
 class EmpresaService {
 
-    def serviceMethod() {
+    def getEmpresa() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userName = ((UserDetails) auth.getPrincipal()).getUsername()
-        println userName
-        User logeado = User.findByUsername(userName)
-        println logeado.empresa.getEname()
+        User logueado = User.findByUsername(userName)
+		return logueado.empresa
     }
+	
+	def getEmpleadosPorEmpresa() {
+		def empresaActual = getEmpresa()
+		return User.findAllByEmpresa(empresaActual)
+	}
 }
