@@ -104,7 +104,10 @@ function enviar(){
 	});
 }
 </script>
-<p>Ivan's Rock</p>
+<p>Ivan's Bachata</p>
+<sec:ifLoggedIn>
+Bienvenido <sec:username/>!
+</sec:ifLoggedIn>
 </html>
 
 
