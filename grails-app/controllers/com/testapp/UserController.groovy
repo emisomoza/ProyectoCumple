@@ -1,6 +1,7 @@
 package com.testapp
 
 import grails.plugin.springsecurity.annotation.Secured
+import proyectocumple.EmpresaService
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -8,11 +9,14 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
+    EmpresaService empresaService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_ADMIN'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
+        empresaService.serviceMethod()
     }
 
     def show(User userInstance) {
