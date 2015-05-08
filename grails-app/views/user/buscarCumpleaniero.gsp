@@ -1,7 +1,17 @@
 <html>
 
 <head>
-<asset:javascript src="application.js"/>
+	<asset:javascript src="application.js"/>
+	<meta name="layout" content="bootstrap"/>
+	<style type="text/css" media="screen">
+		#arribaDerecha{
+	 		position:absolute;
+	 		top:0;
+	 		right:0;
+	 		width:200px;
+	 		margin-top:5px;
+		}
+	</style>
 </head>
 
 <body>
@@ -104,10 +114,12 @@ function enviar(){
 	});
 }
 </script>
-<p>Ivan's Bachata</p>
-<sec:ifLoggedIn>
-Bienvenido <sec:username/>!
-</sec:ifLoggedIn>
+<div id="arribaDerecha">
+	<sec:ifLoggedIn>
+	Bienvenido <sec:username/>!
+	<a href="${createLink(controller:"user", action:"logout")}"> Logout </a>
+	</sec:ifLoggedIn>
+</div>
 </html>
 
 

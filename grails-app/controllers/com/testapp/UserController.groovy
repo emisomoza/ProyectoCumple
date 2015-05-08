@@ -1,8 +1,8 @@
 package com.testapp
 
 import grails.plugin.springsecurity.annotation.Secured
-
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -186,6 +186,11 @@ class UserController {
         //	return new ModelAndView ('/proyectocumplevista/mostrarRegaloAsignado', [empleado: empleado])
 
     }
+	
+	def logout() {
+		session.invalidate()
+		redirect uri: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
+	}
 
 
 }
