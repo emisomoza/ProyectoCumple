@@ -5,8 +5,7 @@ import com.testapp.UserRole
 class BootStrap {
 
 	def init = { servletContext ->
-
-        User admin = new User(username:'admin', password:'password', enabled:true).save()
+        User admin = new User(username:'admin', password:'admin', apellido:'apellido', fechaCumple:'0000-00-00 00:00:00', empresa:'1',  enabled:true).save()
         User emisomoza = new User(username:'emisomoza', password:'123456', enabled:true).save()
         User imatellan = new User(username:'imatellan', password:'1234', enabled:true).save()
         Role user = new Role(authority: 'ROLE_USER').save()
