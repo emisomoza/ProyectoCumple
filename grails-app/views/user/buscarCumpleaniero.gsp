@@ -104,7 +104,7 @@ function enviar(){
 
 			$("#contenedor").empty();
 			data.forEach(function(item) {
-				str = item.nombre + " " + item.apellido + " " + "<br>";
+				str = item.username + " " + item.apellido + " " + "<br>";
 				$("#contenedor").append(str);
 			})
 	});
