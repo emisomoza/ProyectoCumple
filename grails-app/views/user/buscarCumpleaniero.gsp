@@ -94,7 +94,7 @@ function enviar(){
 	console.log("nombre", nombre);
 
 	var request = $.ajax({
-  		url: "${createLink(controller: "EmpleadoRest", action: "search")}",
+  		url: "${createLink(controller: "UserRest", action: "search")}",
 		data: { nombre: nombre }
 	});
  
