@@ -1,6 +1,6 @@
 Confirmar asignacion de regalo <br>
 
-<g:form controller="empleado" action="confirmacionDeGuardado" >
+<g:form controller="user" action="confirmacionDeGuardado" >
 
 <td>Identificacion Empleado: </td>  ${empleado.id}	<br>
 <td>Nombre Empleado: </td>  ${empleado.nombre}	<br>

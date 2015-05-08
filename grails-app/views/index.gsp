@@ -89,8 +89,8 @@
 			<div id="controller-list" role="navigation">
 				<h2>Funcionalidades:</h2>
 				<ul>
-	                <li><a href="${createLink(controller: 'empleado', action: 'buscarCumpleaniero')}">Buscar cumpleañero</a></li>
-	                <li><a href="${createLink(controller: 'empleado', action: 'index')}">Agregar Usuario</a></li>
+	                <li><a href="${createLink(controller: 'user', action: 'buscarCumpleaniero')}">Buscar cumpleañero</a></li>
+	                <li><a href="${createLink(controller: 'user', action: 'index')}">Agregar Usuario</a></li>
 				</ul>
 			</div>
 		</div>

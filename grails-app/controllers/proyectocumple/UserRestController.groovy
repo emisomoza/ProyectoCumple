@@ -1,29 +1,33 @@
 package proyectocumple
 
+import com.testapp.User
+import com.testapp.UserService
 import org.springframework.web.servlet.ModelAndView
 import grails.rest.RestfulController
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_USER'])
-class EmpleadoRestController extends RestfulController{
+class UserRestController extends RestfulController{
 
 	static responseFormats = ['json', 'xml']
 
-	EmpleadoService empleadoService
-	public EmpleadoRestController() {
-		super(Empleado)
+	UserService userService
+
+
+	public UserRestController() {
+		super(User)
 	}
 
 	def search() {
-		def empleados = Empleado.findAllByNombreLike(params.nombre + "%")
+		def empleados = User.findAllByUsernameLike(params.nombre + "%")
 		respond empleados
 	}
 
 	@Override
 	def save() {
-		empleadoService.guardarEmpleado(params)
-		redirect(uri: "/empleado/index")
+		userService.guardarEmpleado(params)
+		redirect(uri: "/user/index")
 	}
 
 }
