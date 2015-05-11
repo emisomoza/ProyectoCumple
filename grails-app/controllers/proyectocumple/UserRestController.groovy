@@ -36,4 +36,11 @@ class UserRestController extends RestfulController{
 		redirect(uri: "/user/index")
 	}
 
+	@Secured(['ROLE_USER'])
+	def searchRegalos() {
+		def empleadosEmpresa = empresaService.getEmpleadosPorEmpresa()
+		def empleado = User.findByUsername(params.usuario)
+		respond empleado.regaloDeCumpleanios
+	}
+
 }
