@@ -2,9 +2,11 @@ package com.testapp
 
 import com.testapp.User
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 import groovy.json.JsonSlurper
 import proyectocumple.Regalo
 
+@Transactional(readOnly=false)
 class UserService {
 
 	@Secured(['ROLE_USER'])
@@ -38,6 +40,8 @@ class UserService {
 		regalo.titulo = json.title
 		regalo.link = json.permalink
 		regalo.fechaDeAsignacion = fecha
+		regalo.empleado = empleado
+		regalo.save()
 		empleado.addToRegaloDeCumpleanios(regalo)
 
 		//def empleado = User.findById(empleado.id)

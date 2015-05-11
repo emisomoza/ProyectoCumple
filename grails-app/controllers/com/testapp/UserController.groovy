@@ -6,7 +6,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+@Transactional
 class UserController {
 
     EmpresaService empresaService
@@ -164,6 +164,7 @@ class UserController {
     }
 
     @Secured(['ROLE_ADMIN'])
+    @Transactional
     def asignarRegalo() {
 
         def idEmpleado = params.idEmpleado
