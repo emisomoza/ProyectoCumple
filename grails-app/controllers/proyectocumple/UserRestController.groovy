@@ -38,9 +38,14 @@ class UserRestController extends RestfulController{
 
 	@Secured(['ROLE_USER'])
 	def searchRegalos() {
+		List listaVacia = [] 
 		def empleadosEmpresa = empresaService.getEmpleadosPorEmpresa()
-		def empleado = User.findByUsername(params.usuario)
-		respond empleado.regaloDeCumpleanios
+		def empleado = empleadosEmpresa.find{it.username == params.usuario}
+		if(empleado) {
+			respond empleado.regaloDeCumpleanios
+		} else {
+			respond listaVacia
+		}
 	}
 
 }
