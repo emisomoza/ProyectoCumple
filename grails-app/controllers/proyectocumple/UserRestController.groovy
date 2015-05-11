@@ -12,7 +12,7 @@ import proyectocumple.EmpresaService
 class UserRestController extends RestfulController{
 
 	static responseFormats = ['json', 'xml']
-	EmpresaService empresaService
+
 	
 	UserService userService
 	EmpresaService empresaService

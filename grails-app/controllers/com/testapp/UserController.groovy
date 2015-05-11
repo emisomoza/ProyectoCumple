@@ -125,6 +125,22 @@ class UserController {
     }
 
     @Secured(['ROLE_USER'])
+    def buscarUserViaREST() {
+        def listaEmpleadosEmpresa = empresaService.getEmpleadosPorEmpresa()
+        def empleadosEmpresaMesActual = userService.buscarCumpleanierosPorMesActual(listaEmpleadosEmpresa)
+        [empleadosEmpresaMesActual: empleadosEmpresaMesActual]
+        //	return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
+    }
+
+    @Secured(['ROLE_USER'])
+    def agregarUserViaREST() {
+        def listaEmpleadosEmpresa = empresaService.getEmpleadosPorEmpresa()
+        def empleadosEmpresaMesActual = userService.buscarCumpleanierosPorMesActual(listaEmpleadosEmpresa)
+        [empleadosEmpresaMesActual: empleadosEmpresaMesActual]
+        //	return new ModelAndView ('/proyectocumplevista/cumpleDelMes', [listaEmpleadosCumple: listaEmpleadosCumple])
+    }
+
+    @Secured(['ROLE_USER'])
     def elegirRegalo() {
         def empleado = User.get(params.id)
 
