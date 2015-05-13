@@ -14,6 +14,10 @@
     <title>Agregar Via REST</title>
 </head>
 <body>
+<br/>
+<br/>
+<br/>
+<br/>
     <h3>Formulario de alta por REST</h3>
     <g:form controller="UserRest" action="save" method="POST">
         <label>Datos del empleado</label>
