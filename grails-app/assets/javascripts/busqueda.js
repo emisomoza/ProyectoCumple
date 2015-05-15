@@ -3,8 +3,8 @@ $(function() {
 
 	function enviarConsulta() {
 		setTimeout(function() {
-			var query = "https://api.mercadolibre.com/sites/MLA/search?q=" + $("#meliquery").val();
-
+			//var query = "https://api.mercadolibre.com/sites/MLA/search?q=" + $("#meliquery").val();
+			var query = "/ProyectoCumple/user/obtenerRegalos?buscar=" + $("#meliquery").val();
 			var promise = $.get(query);
 			promise.done( recibirResultados );
 		}, 0);

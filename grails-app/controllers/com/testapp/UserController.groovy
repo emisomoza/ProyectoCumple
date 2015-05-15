@@ -1,10 +1,12 @@
 package com.testapp
 
-import grails.plugin.springsecurity.annotation.Secured
-import proyectocumple.EmpresaService
+import grails.plugins.rest.client.RestBuilder
 import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
+import proyectocumple.EmpresaService
 
 @Transactional
 class UserController {
@@ -213,5 +215,12 @@ class UserController {
 		redirect uri: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
 	}
 
+	def obtenerRegalos() {
+				def rest = new RestBuilder()
+				String apiMeli = "https://api.mercadolibre.com/sites/MLA/search?q=" + params.buscar
+				
+				def resp = rest.get(apiMeli)
+				render resp as JSON
+			}
 
 }
