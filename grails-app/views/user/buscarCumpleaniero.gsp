@@ -3,10 +3,12 @@
 	<asset:javascript src="application.js"/>
 	<asset:stylesheet src="application.css" />
 	<meta name="layout" content="bootstrap"/>
-
 </head>
 <body>
-
+<br/>
+<br/>
+<br/>
+<br/>
 	<table border=1>
 		<h3>Lista de personas que cumplen años este mes</h3>
 		<br/>
@@ -30,9 +32,5 @@
 			<a href="${createLink(controller:"user", action:"logout")}"> Logout </a>
 		</sec:ifLoggedIn>
 	</div>
-</body>
-</html>
-
-
-
+</body></html>
 

@@ -38,6 +38,10 @@
     <title>Buscar Via REST</title>
 </head>
 <body>
+    <br/>
+<br/>
+<br/>
+<br/>
     <h3>Busca Empleados por el Nombre a traves de un servicio REST</h3>
     <br/>
     <input type="text" id="nombre" name="nombre" value=""/>
