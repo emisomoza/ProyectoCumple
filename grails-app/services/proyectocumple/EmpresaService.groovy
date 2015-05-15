@@ -11,10 +11,11 @@ import com.testapp.User
 
 @Transactional
 class EmpresaService {
-
+	AuthenticationService authenticationService
+	
 	@Secured(['ROLE_USER'])
     def getEmpresa() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Authentication auth = authenticationService.getAuth();
         String userName = ((UserDetails) auth.getPrincipal()).getUsername()
         User logueado = User.findByUsername(userName)
 		return logueado.empresa
