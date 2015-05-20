@@ -1,6 +1,8 @@
 package com.testapp
 
 import grails.plugins.rest.client.RestBuilder
+
+//import grails.plugins.rest.client.RestBuilder
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 import grails.plugin.springsecurity.SpringSecurityUtils
@@ -216,7 +218,7 @@ class UserController {
 	}
 
 	def obtenerRegalos() {
-				def rest = new RestBuilder()
+				RestBuilder rest = new RestBuilder()
 				String apiMeli = "https://api.mercadolibre.com/sites/MLA/search?q=" + params.buscar
 				
 				def resp = rest.get(apiMeli)
