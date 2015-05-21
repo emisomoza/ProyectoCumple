@@ -1,13 +1,12 @@
 package com.testapp
 
 import grails.plugins.rest.client.RestBuilder
-
-//import grails.plugins.rest.client.RestBuilder
 import static org.springframework.http.HttpStatus.*
 import grails.converters.JSON
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
+import org.codehaus.groovy.grails.web.json.JSONObject
 import proyectocumple.EmpresaService
 
 @Transactional
@@ -221,8 +220,11 @@ class UserController {
 				RestBuilder rest = new RestBuilder()
 				String apiMeli = "https://api.mercadolibre.com/sites/MLA/search?q=" + params.buscar
 				
+				println apiMeli
 				def resp = rest.get(apiMeli)
-				render resp as JSON
+				resp.json instanceof JSONObject
+				println resp.json
+				render resp.json as JSON
 			}
 
 }
